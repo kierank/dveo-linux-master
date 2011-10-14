@@ -24,7 +24,7 @@ TARGETS = rp155 ac3aes3 aes3data audiocapture audioplayout \
 all: $(TARGETS)
 
 rp155: rp155.c $(INCLUDEDIR)/master.h
-	$(CC) $(CFLAGS) -lm -o $@ $@.c
+	$(CC) $(CFLAGS) -o $@ $@.c -lm
 ac3aes3: ac3aes3.c $(INCLUDEDIR)/master.h
 aes3data: aes3data.c $(INCLUDEDIR)/master.h
 audiocapture: audiocapture.c $(INCLUDEDIR)/master.h ../util.o
