@@ -30,6 +30,10 @@
 #include <linux/device.h> /* device_create () */
 #include <linux/fs.h> /* MKDEV () */
 
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,2,0)
+#include <linux/module.h> /* modules */
+#endif
+
 #include "../include/master.h"
 #include "mdev.h"
 

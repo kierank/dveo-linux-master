@@ -31,6 +31,10 @@
 #include <linux/dma-mapping.h> /* DMA_FROM_DEVICE */
 #include <linux/mutex.h> /* mutex_lock () */
 
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,2,0)
+#include <linux/module.h> /* modules */
+#endif
+
 #include "../include/master.h"
 #include "miface.h"
 #include "mdev.h"
