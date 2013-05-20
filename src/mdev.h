@@ -32,6 +32,7 @@
 #include <linux/interrupt.h> /* irqreturn_t */
 #include <linux/device.h> /* device */
 #include <linux/mutex.h> /* mutex */
+#include <linux/module.h> 
 
 #include <asm/io.h> /* inl () */
 

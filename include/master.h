@@ -1,9 +1,9 @@
 /* master.h
  *
- * Global definitions for Linear Systems Ltd.
+ * Global definitions for Computer Modules Ltd.
  * digital television-related boards.
  *
- * Copyright (C) 2004-2010 Linear Systems Ltd.
+ * Copyright (C) 2004-2013 Computer Modules Ltd.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -15,14 +15,13 @@
  *      notice, this list of conditions and the following disclaimer in the
  *      documentation and/or other materials provided with the distribution.
  *
- *   3. Neither the name of Linear Systems Ltd. nor the names of its
- *      contributors may be used to endorse or promote products derived from
+ *   3. Neither the name of Computer ModulesLtd. nor the names of its
  *      this software without specific prior written permission.
  *
- * THIS SOFTWARE IS PROVIDED BY LINEAR SYSTEMS LTD. "AS IS" AND ANY
+ * THIS SOFTWARE IS PROVIDED BY Computer ModulesLTD. "AS IS" AND ANY
  * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- * ARE DISCLAIMED. IN NO EVENT SHALL LINEAR SYSTEMS LTD. OR CONTRIBUTORS
+ * ARE DISCLAIMED. IN NO EVENT SHALL Computer ModulesLTD. OR CONTRIBUTORS
  * BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
  * OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
  * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
@@ -31,16 +30,16 @@
  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * Linear Systems can be contacted at <http://www.linsys.ca/>.
+ * Computer Modules can be contacted at <http://www.DVEO.com/>.
  *
  */
 
 #ifndef _MASTER_H
 #define _MASTER_H
 
-#define MASTER_DRIVER_VERSION "2.7.2"
-#define MASTER_DRIVER_VERSION_CODE 0x020702
-#define MASTER_DRIVER_DATE "2010-12-17"
+#define MASTER_DRIVER_VERSION "3.8.3"
+#define MASTER_DRIVER_VERSION_CODE 0x030830
+#define MASTER_DRIVER_DATE "2013-04-13"
 
 #define MASTER_PCI_VENDOR_ID_LINSYS 0x1254
 

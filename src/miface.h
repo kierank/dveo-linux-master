@@ -36,16 +36,29 @@
 #include <linux/mutex.h> /* mutex */
 #include <linux/poll.h> /* poll_table */
 #include <linux/mm.h> /* vm_area_struct */
+#include <linux/module.h>
 
 #include "mdev.h"
 #include "mdma.h"
 
+/*
 #if (LINUX_VERSION_CODE < KERNEL_VERSION(2,6,35))
 #define FSYNC_HANDLER(name,filp,datasync) \
 	name (struct file *filp, struct dentry *dentry, int datasync)
 #else
 #define FSYNC_HANDLER(name,filp,datasync) \
 	name (struct file *filp, int datasync)
+#endif
+*/
+
+#if (LINUX_VERSION_CODE < KERNEL_VERSION(2,6,35))
+#define FSYNC_HANDLER(name,filp,datasync) \ name (struct file *filp, struct dentry *dentry, int datasync)
+
+#elif (LINUX_VERSION_CODE < KERNEL_VERSION(3,1,10))		 
+#define FSYNC_HANDLER(name,filp,datasync) \ name (struct file *filp, int datasync)	 	 
+#else 	 	
+#define FSYNC_HANDLER(name,filp,datasync) \
+    name (struct file *filp, loff_t start, loff_t end, int datasync)	
 #endif
 
 #define MASTER_MINORBITS	8

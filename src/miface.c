@@ -1,8 +1,8 @@
 /* miface.c
  *
- * Support functions for Linear Systems Ltd. Master interfaces.
+ * Support functions for Computer Modules Ltd. Master interfaces.
  *
- * Copyright (C) 2005-2010 Linear Systems Ltd.
+ * Copyright (C) 2005-2013 Computer Modules Ltd.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -18,7 +18,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
- * Linear Systems can be contacted at <http://www.linsys.ca/>.
+ * Computer Modules can be contacted at <http://www.dveo.com/>.
  *
  */
 
@@ -47,6 +47,10 @@
 
 #ifndef IRQF_SHARED
 #define IRQF_SHARED SA_SHIRQ
+#endif
+
+#ifndef VM_RESERVED
+# define VM_RESERVED (VM_DONTEXPAND | VM_DONTDUMP)
 #endif
 
 /* Static function prototypes */
