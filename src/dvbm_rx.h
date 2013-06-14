@@ -91,7 +91,7 @@
 
 /* External function prototypes */
 
-int dvbm_rx_pci_probe (struct pci_dev *pdev) __devinit;
+int dvbm_rx_pci_probe (struct pci_dev *pdev);
 void dvbm_rx_pci_remove (struct pci_dev *pdev);
 
 #endif

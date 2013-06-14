@@ -153,7 +153,7 @@
 #define DVBM_QDUAL_TCSR_MODE_MASK	0x00000003
 
 /* External function prototypes */
-int dvbm_qdual_pci_probe (struct pci_dev *pdev) __devinit;
+int dvbm_qdual_pci_probe (struct pci_dev *pdev);
 void dvbm_qdual_pci_remove (struct pci_dev *pdev);
 
 #endif

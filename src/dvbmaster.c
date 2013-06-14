@@ -59,8 +59,8 @@
 
 /* Static function prototypes */
 static int dvbm_pci_probe (struct pci_dev *pdev,
-	const struct pci_device_id *id) __devinit;
-static void dvbm_pci_remove (struct pci_dev *pdev) __devexit;
+	const struct pci_device_id *id);
+static void dvbm_pci_remove (struct pci_dev *pdev);
 static int dvbm_init_module (void) __init;
 static void dvbm_cleanup_module (void) __exit;
 
@@ -284,7 +284,7 @@ static struct class *dvbm_class;
  * Perform generic PCI device initialization.
  * Returns a negative error code on failure and 0 on success.
  **/
-int __devinit
+int 
 dvbm_pci_probe_generic (struct pci_dev *pdev)
 {
 	int err;
@@ -329,7 +329,7 @@ dvbm_pci_probe_generic (struct pci_dev *pdev)
  * Call the appropriate PCI insertion handler.
  * Returns a negative error code on failure and 0 on success.
  **/
-static int __devinit
+static int 
 dvbm_pci_probe (struct pci_dev *pdev,
 	const struct pci_device_id *id)
 {
@@ -425,7 +425,7 @@ dvbm_pci_remove_generic (struct pci_dev *pdev)
  *
  * Call the appropriate PCI removal handler.
  **/
-static void __devexit
+static void 
 dvbm_pci_remove (struct pci_dev *pdev)
 {
 	switch (pdev->device) {

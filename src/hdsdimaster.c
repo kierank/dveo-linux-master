@@ -53,8 +53,8 @@
 
 /* Static function prototypes */
 static int hdsdim_pci_probe (struct pci_dev *pdev,
-	const struct pci_device_id *id) __devinit;
-static void hdsdim_pci_remove (struct pci_dev *pdev) __devexit;
+	const struct pci_device_id *id); 
+static void hdsdim_pci_remove (struct pci_dev *pdev);
 static int hdsdim_init_module (void) __init;
 static void hdsdim_cleanup_module (void) __exit;
 
@@ -102,7 +102,7 @@ static struct class *hdsdim_class;
  * Perform generic PCI device initialization.
  * Returns a negative error code on failure and 0 on success.
  **/
-int __devinit
+int
 hdsdim_pci_probe_generic (struct pci_dev *pdev)
 {
 	int err;
@@ -151,7 +151,7 @@ hdsdim_pci_probe_generic (struct pci_dev *pdev)
  * Call the appropriate PCI insertion handler.
  * Returns a negative error code on failure and 0 on success.
  **/
-static int __devinit
+static int 
 hdsdim_pci_probe (struct pci_dev *pdev,
 	const struct pci_device_id *id)
 {
@@ -190,7 +190,7 @@ hdsdim_pci_remove_generic (struct pci_dev *pdev)
  *
  * Call the appropriate PCI removal handler.
  **/
-static void __devexit
+static void 
 hdsdim_pci_remove (struct pci_dev *pdev)
 {
 	switch (pdev->device) {
