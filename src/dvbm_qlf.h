@@ -109,7 +109,7 @@
 #define DVBM_QLF_CSR_TSCLKSRC_EXT	0x00000001
 
 /* External function prototypes */
-int dvbm_qlf_pci_probe (struct pci_dev *pdev) __devinit;
+int dvbm_qlf_pci_probe (struct pci_dev *pdev);
 void dvbm_qlf_pci_remove (struct pci_dev *pdev);
 
 #endif

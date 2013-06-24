@@ -114,7 +114,7 @@ static ssize_t lsa_store_range (struct device *dev,
 	const char *buf,
 	size_t count);
 static int lsa_pci_probe (struct pci_dev *pdev,
-	const struct pci_device_id *id) __devinit;
+	const struct pci_device_id *id);
 static void lsa_pci_remove (struct pci_dev *pdev);
 static int lsa_init_module (void) __init;
 static void lsa_cleanup_module (void) __exit;
@@ -552,7 +552,7 @@ static DEVICE_ATTR(range,S_IRUGO|S_IWUSR,
  * Checks if a PCI device should be handled by this driver.
  * Returns a negative error code on failure and 0 on success.
  **/
-static int __devinit
+static int 
 lsa_pci_probe (struct pci_dev *pdev,
 	const struct pci_device_id *id)
 {

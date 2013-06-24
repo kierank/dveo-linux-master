@@ -139,7 +139,7 @@
 
 /* External function prototypes */
 
-int hdsdim_txe_pci_probe (struct pci_dev *pdev) __devinit;
+int hdsdim_txe_pci_probe (struct pci_dev *pdev);
 void hdsdim_txe_pci_remove (struct pci_dev *pdev);
 
 #endif

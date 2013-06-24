@@ -26,6 +26,11 @@
 #ifndef _DVBM_H
 #define _DVBM_H
 
+#ifndef devinit
+#define devinit
+#define devinitdata
+#endif
+
 #include <linux/pci.h> /* pci_dev */
 #include <linux/init.h> /* __devinit */
 
@@ -37,7 +42,7 @@ extern char dvbm_driver_name[];
 
 /* External function prototypes */
 
-int dvbm_pci_probe_generic (struct pci_dev *pdev) __devinit;
+int dvbm_pci_probe_generic (struct pci_dev *pdev); 
 void dvbm_pci_remove_generic (struct pci_dev *pdev);
 int dvbm_register (struct master_dev *card);
 void dvbm_unregister_all (struct master_dev *card);

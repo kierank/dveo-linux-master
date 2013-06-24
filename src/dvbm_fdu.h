@@ -222,9 +222,9 @@ extern struct master_iface_operations dvbm_fdu_rxops;
 ssize_t dvbm_fdu_show_uid (struct device *dev,
 	struct device_attribute *attr,
 	char *buf);
-int dvbm_fdu_pci_probe (struct pci_dev *pdev) __devinit;
-int dvbm_txu_pci_probe (struct pci_dev *pdev) __devinit;
-int dvbm_rxu_pci_probe (struct pci_dev *pdev) __devinit;
+int dvbm_fdu_pci_probe (struct pci_dev *pdev);
+int dvbm_txu_pci_probe (struct pci_dev *pdev);
+int dvbm_rxu_pci_probe (struct pci_dev *pdev);
 void dvbm_fdu_pci_remove (struct pci_dev *pdev);
 
 #define dvbm_txu_pci_remove(pdev) dvbm_fdu_pci_remove(pdev)

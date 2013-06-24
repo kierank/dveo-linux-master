@@ -115,7 +115,7 @@ static ssize_t lsj_store_range (struct device *dev,
 	const char *buf,
 	size_t count);
 static int lsj_pci_probe (struct pci_dev *pdev,
-	const struct pci_device_id *id) __devinit;
+	const struct pci_device_id *id);
 static void lsj_pci_remove (struct pci_dev *pdev);
 static int lsj_init_module (void) __init;
 static void lsj_cleanup_module (void) __exit;
@@ -533,7 +533,7 @@ static DEVICE_ATTR(range,S_IRUGO|S_IWUSR,
  * Checks if a PCI device should be handled by this driver.
  * Returns a negative error code on failure and 0 on success.
  **/
-static int __devinit
+static int 
 lsj_pci_probe (struct pci_dev *pdev,
 	const struct pci_device_id *id)
 {

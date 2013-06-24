@@ -162,9 +162,9 @@ ssize_t dvbm_lpfd_store_blackburst_type (struct device *dev,
 ssize_t dvbm_lpfd_show_uid (struct device *dev,
 	struct device_attribute *attr,
 	char *buf);
-int dvbm_lpfd_pci_probe (struct pci_dev *pdev) __devinit;
-int dvbm_lptxe_pci_probe (struct pci_dev *pdev) __devinit;
-int dvbm_lprxe_pci_probe (struct pci_dev *pdev) __devinit;
+int dvbm_lpfd_pci_probe (struct pci_dev *pdev);
+int dvbm_lptxe_pci_probe (struct pci_dev *pdev);
+int dvbm_lprxe_pci_probe (struct pci_dev *pdev);
 void dvbm_lpfd_pci_remove (struct pci_dev *pdev);
 
 #define dvbm_lptxe_pci_remove(pdev) dvbm_lpfd_pci_remove(pdev)

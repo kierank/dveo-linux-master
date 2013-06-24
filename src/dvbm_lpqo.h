@@ -97,7 +97,7 @@
 
 /* External function prototypes */
 
-int dvbm_lpqo_pci_probe (struct pci_dev *pdev) __devinit;
+int dvbm_lpqo_pci_probe (struct pci_dev *pdev);
 void dvbm_lpqo_pci_remove (struct pci_dev *pdev);
 
 #endif
