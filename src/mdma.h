@@ -227,9 +227,10 @@ mdma_rx_isempty (struct master_dma *dma)
 static inline void
 mdma_advance (struct master_dma *dma)
 {
-	spin_lock_irq (&dma->lock);
-	dma->dev_buffer = (dma->dev_buffer + 1) % dma->buffers;
-	spin_unlock_irq (&dma->lock);
+	unsigned long flags;
+	spin_lock_irqsave(&dma->lock, flags);
+ 	dma->dev_buffer = (dma->dev_buffer + 1) % dma->buffers;
+	spin_unlock_irqrestore(&dma->lock, flags)
 	return;
 }
 
