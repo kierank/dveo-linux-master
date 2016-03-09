@@ -230,7 +230,7 @@ mdma_advance (struct master_dma *dma)
 	unsigned long flags;
 	spin_lock_irqsave(&dma->lock, flags);
  	dma->dev_buffer = (dma->dev_buffer + 1) % dma->buffers;
-	spin_unlock_irqrestore(&dma->lock, flags)
+	spin_unlock_irqrestore(&dma->lock, flags);
 	return;
 }
 
