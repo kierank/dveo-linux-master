@@ -28,7 +28,7 @@
 
 #include <linux/fs.h> /* file_operations */
 #include <linux/pci.h> /* pci_dev */
-#include <linux/init.h> /* __devinit */
+#include <linux/init.h> /* __init */
 
 #include "miface.h"
 
@@ -162,9 +162,9 @@ ssize_t dvbm_lpfd_store_blackburst_type (struct device *dev,
 ssize_t dvbm_lpfd_show_uid (struct device *dev,
 	struct device_attribute *attr,
 	char *buf);
-int dvbm_lpfd_pci_probe (struct pci_dev *pdev) __devinit;
-int dvbm_lptxe_pci_probe (struct pci_dev *pdev) __devinit;
-int dvbm_lprxe_pci_probe (struct pci_dev *pdev) __devinit;
+int dvbm_lpfd_pci_probe (struct pci_dev *pdev) __init;
+int dvbm_lptxe_pci_probe (struct pci_dev *pdev) __init;
+int dvbm_lprxe_pci_probe (struct pci_dev *pdev) __init;
 void dvbm_lpfd_pci_remove (struct pci_dev *pdev);
 
 #define dvbm_lptxe_pci_remove(pdev) dvbm_lpfd_pci_remove(pdev)

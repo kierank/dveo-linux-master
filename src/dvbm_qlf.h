@@ -26,7 +26,7 @@
 #define _DVBM_QLF_H
 
 #include <linux/pci.h> /* pci_dev */
-#include <linux/init.h> /* __devinit */
+#include <linux/init.h> /* __init */
 
 #define DVBM_PCI_DEVICE_ID_LINSYS_DVBQLF 0x0077
 #define DVBM_PCI_DEVICE_ID_LINSYS_DVBQLF4 0x00B5
@@ -109,7 +109,7 @@
 #define DVBM_QLF_CSR_TSCLKSRC_EXT	0x00000001
 
 /* External function prototypes */
-int dvbm_qlf_pci_probe (struct pci_dev *pdev) __devinit;
+int dvbm_qlf_pci_probe (struct pci_dev *pdev) __init;
 void dvbm_qlf_pci_remove (struct pci_dev *pdev);
 
 #endif

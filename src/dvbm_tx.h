@@ -26,7 +26,7 @@
 #define _DVBM_TX_H
 
 #include <linux/pci.h> /* pci_dev */
-#include <linux/init.h> /* __devinit */
+#include <linux/init.h> /* __init */
 
 #define DVBM_PCI_DEVICE_ID_LINSYS_DVBTX 0x7629
 #define DVBM_NAME_TX "DVB Master Send"
@@ -60,7 +60,7 @@
 
 /* External function prototypes */
 
-int dvbm_tx_pci_probe (struct pci_dev *pdev) __devinit;
+int dvbm_tx_pci_probe (struct pci_dev *pdev) __init;
 void dvbm_tx_pci_remove (struct pci_dev *pdev);
 
 #endif

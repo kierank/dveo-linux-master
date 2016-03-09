@@ -27,7 +27,7 @@
 
 #include <linux/fs.h> /* file_operations */
 #include <linux/pci.h> /* pci_dev */
-#include <linux/init.h> /* __devinit */
+#include <linux/init.h> /* __init */
 
 #include "miface.h"
 
@@ -175,9 +175,9 @@ ssize_t dvbm_qio_store_blackburst_type (struct device *dev,
 ssize_t dvbm_qio_show_uid (struct device *dev,
 	struct device_attribute *attr,
 	char *buf);
-int dvbm_q3io_pci_probe (struct pci_dev *pdev) __devinit;
-int dvbm_q3ino_pci_probe (struct pci_dev *pdev) __devinit;
-int dvbm_qo_pci_probe (struct pci_dev *pdev) __devinit;
+int dvbm_q3io_pci_probe (struct pci_dev *pdev) __init;
+int dvbm_q3ino_pci_probe (struct pci_dev *pdev) __init;
+int dvbm_qo_pci_probe (struct pci_dev *pdev) __init;
 void dvbm_qio_pci_remove (struct pci_dev *pdev);
 
 #define dvbm_q3io_pci_remove(pdev) dvbm_qio_pci_remove(pdev)

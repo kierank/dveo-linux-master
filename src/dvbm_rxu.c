@@ -30,7 +30,7 @@
 #include <linux/slab.h> /* kzalloc () */
 #include <linux/list.h> /* INIT_LIST_HEAD () */
 #include <linux/spinlock.h> /* spin_lock_init () */
-#include <linux/init.h> /* __devinit */
+#include <linux/init.h> /* __init */
 #include <linux/errno.h> /* error codes */
 #include <linux/interrupt.h> /* irqreturn_t */
 #include <linux/mutex.h> /* mutex_init () */
@@ -61,7 +61,7 @@ static DEVICE_ATTR(uid,S_IRUGO,
  * Handle the insertion of a DVB Master III Rx.
  * Returns a negative error code on failure and 0 on success.
  **/
-int __devinit
+int __init
 dvbm_rxu_pci_probe (struct pci_dev *pdev)
 {
 	int err;

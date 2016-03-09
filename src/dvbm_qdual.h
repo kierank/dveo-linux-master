@@ -26,7 +26,7 @@
 #define _DVBM_QDUAL_H
 
 #include <linux/pci.h> /* pci_dev */
-#include <linux/init.h> /* __devinit */
+#include <linux/init.h> /* __init */
 
 #define DVBM_PCI_DEVICE_ID_LINSYS_DVBQDUAL 0x007d
 #define DVBM_PCI_DEVICE_ID_LINSYS_DVBQDUALE 0x0086
@@ -153,7 +153,7 @@
 #define DVBM_QDUAL_TCSR_MODE_MASK	0x00000003
 
 /* External function prototypes */
-int dvbm_qdual_pci_probe (struct pci_dev *pdev) __devinit;
+int dvbm_qdual_pci_probe (struct pci_dev *pdev) __init;
 void dvbm_qdual_pci_remove (struct pci_dev *pdev);
 
 #endif

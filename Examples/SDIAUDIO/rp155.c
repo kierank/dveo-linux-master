@@ -190,13 +190,12 @@ main (int argc, char **argv)
 	}
 
 	/* Generate one second of silence */
-	silence = malloc (channels * sampling_rate * sample_size / 8);
+	silence = calloc (1, channels * sampling_rate * sample_size / 8);
 	if (!silence) {
 		fprintf (stderr, "%s: unable to allocate memory\n", argv[0]);
 		free (data);
 		return -1;
 	}
-	memset (silence, 0, sizeof (silence));
 
 	silent = 0;
 	avsync_count = 1;

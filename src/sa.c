@@ -74,7 +74,7 @@ static ssize_t mmsa_show_uid (struct device *dev,
 	struct device_attribute *attr,
 	char *buf);
 static int mmsa_pci_probe (struct pci_dev *pdev,
-	const struct pci_device_id *id) __devinit;
+	const struct pci_device_id *id) __init;
 static void mmsa_pci_remove (struct pci_dev *pdev);
 static irqreturn_t IRQ_HANDLER(mmsa_irq_handler,irq,dev_id,regs);
 static void mmsa_txinit (struct master_iface *iface);
@@ -259,7 +259,7 @@ static DEVICE_ATTR(uid,S_IRUGO,
  * Handle the insertion of a MultiMaster SDI-R.
  * Returns a negative error code on failure and 0 on success.
  **/
-static int __devinit
+static int __init
 mmsa_pci_probe (struct pci_dev *pdev,
 	const struct pci_device_id *id)
 {

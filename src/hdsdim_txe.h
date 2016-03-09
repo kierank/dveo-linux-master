@@ -26,7 +26,7 @@
 #define _HDSDIM_TXE_H
 
 #include <linux/pci.h> /* pci_dev */
-#include <linux/init.h> /* __devinit */
+#include <linux/init.h> /* __init */
 
 #define HDSDIM_PCI_DEVICE_ID_LINSYS_HDSDITXE 0x00c1
 #define HDSDIM_NAME_TXE		"VidPort SD/HD O"
@@ -139,7 +139,7 @@
 
 /* External function prototypes */
 
-int hdsdim_txe_pci_probe (struct pci_dev *pdev) __devinit;
+int hdsdim_txe_pci_probe (struct pci_dev *pdev) __init;
 void hdsdim_txe_pci_remove (struct pci_dev *pdev);
 
 #endif

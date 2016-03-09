@@ -26,7 +26,7 @@
 #define _HDSDIM_QIE_H
 
 #include <linux/pci.h> /* pci_dev */
-#include <linux/init.h> /* __devinit */
+#include <linux/init.h> /* __init */
 
 #define HDSDIM_PCI_DEVICE_ID_LINSYS_HDSDIQIE	0x00B6
 #define HDSDIM_NAME_QIE		"QuadPort H/i"
@@ -128,7 +128,7 @@
 
 /* External function prototypes */
 
-int hdsdim_qie_pci_probe (struct pci_dev *pdev) __devinit;
+int hdsdim_qie_pci_probe (struct pci_dev *pdev) __init;
 void hdsdim_qie_pci_remove (struct pci_dev *pdev);
 
 #endif

@@ -13,7 +13,7 @@ bindir = $(exec_prefix)/bin
 
 .PHONY: all clean install uninstall
 
-CFLAGS = -O2 -Wall -W -I$(INCLUDEDIR) -D_LARGEFILE_SOURCE \
+CFLAGS = -O2 -Wall -W -I$(INCLUDEDIR) -D_LARGEFILE_SOURCE -Wextra \
 	$(shell getconf LFS_CFLAGS; getconf LFS_LDFLAGS; getconf LFS_LIBS)
 TARGETS = mastercfg
 SUBDIRS = ASI SDI SDIAUDIO SDIVIDEO

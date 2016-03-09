@@ -26,7 +26,7 @@
 #define _DVBM_RX_H
 
 #include <linux/pci.h> /* pci_dev */
-#include <linux/init.h> /* __devinit */
+#include <linux/init.h> /* __init */
 
 #define DVBM_PCI_DEVICE_ID_LINSYS_DVBRX 0x7630
 #define DVBM_NAME_RX "DVB Master Receive"
@@ -91,7 +91,7 @@
 
 /* External function prototypes */
 
-int dvbm_rx_pci_probe (struct pci_dev *pdev) __devinit;
+int dvbm_rx_pci_probe (struct pci_dev *pdev) __init;
 void dvbm_rx_pci_remove (struct pci_dev *pdev);
 
 #endif

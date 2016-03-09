@@ -31,7 +31,7 @@
 #include <linux/slab.h> /* kzalloc () */
 #include <linux/list.h> /* INIT_LIST_HEAD () */
 #include <linux/spinlock.h> /* spin_lock_init () */
-#include <linux/init.h> /* __devinit */
+#include <linux/init.h> /* __init */
 #include <linux/errno.h> /* error codes */
 #include <linux/delay.h> /* msleep () */
 #include <linux/interrupt.h> /* irqreturn_t */
@@ -297,7 +297,7 @@ static DEVICE_ATTR(uid,S_IRUGO, hdsdim_txe_show_uid, NULL);
  * Handle the insertion of a VidPort SD/HD O.
  * Returns a negative error code on failure and 0 on success.
  **/
-int __devinit
+int __init
 hdsdim_txe_pci_probe (struct pci_dev *pdev)
 {
 	int err;
@@ -412,7 +412,7 @@ NO_PCI:
  *
  * Handle the removal of a VidPort SD/HD O.
  * This function may be called during PCI probe error handling,
- * so don't mark it as __devexit.
+ * so don't mark it as __exit.
  **/
 void
 hdsdim_txe_pci_remove (struct pci_dev *pdev)

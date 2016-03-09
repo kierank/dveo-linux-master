@@ -32,7 +32,7 @@
 #include <linux/slab.h> /* kzalloc () */
 #include <linux/list.h> /* INIT_LIST_HEAD () */
 #include <linux/spinlock.h> /* spin_lock_init () */
-#include <linux/init.h> /* __devinit */
+#include <linux/init.h> /* __init */
 #include <linux/errno.h> /* error codes */
 #include <linux/interrupt.h> /* irqreturn_t */
 #include <linux/device.h> /* device_create_file () */
@@ -67,7 +67,7 @@ static ssize_t sdim_qie_show_uid (struct device *dev,
 	struct device_attribute *attr,
 	char *buf);
 static int sdim_qie_pci_probe (struct pci_dev *pdev,
-	const struct pci_device_id *id) __devinit;
+	const struct pci_device_id *id) __init;
 static void sdim_qie_pci_remove (struct pci_dev *pdev);
 static irqreturn_t IRQ_HANDLER(sdim_qie_irq_handler,irq,dev_id,regs);
 static void sdim_qie_init (struct master_iface *iface);
@@ -162,7 +162,7 @@ static DEVICE_ATTR(uid,S_IRUGO,
  * Handle the insertion of a SDI Master Q/i.
  * Returns a negative error code on failure and 0 on success.
  **/
-static int __devinit
+static int __init
 sdim_qie_pci_probe (struct pci_dev *pdev,
 	const struct pci_device_id *id)
 {

@@ -32,7 +32,7 @@
 #include <linux/slab.h> /* kzalloc () */
 #include <linux/list.h> /* INIT_LIST_HEAD () */
 #include <linux/spinlock.h> /* spin_lock_init () */
-#include <linux/init.h> /* __devinit */
+#include <linux/init.h> /* __init */
 #include <linux/errno.h> /* error codes */
 #include <linux/interrupt.h> /* irqreturn_t */
 #include <linux/mutex.h> /* mutex_init () */
@@ -90,7 +90,7 @@ static struct master_iface_operations dvbm_tx_ops = {
  * Handle the insertion of a DVB Master Send.
  * Returns a negative error code on failure and 0 on success.
  **/
-int __devinit
+int __init
 dvbm_tx_pci_probe (struct pci_dev *pdev)
 {
 	int err;
@@ -180,7 +180,7 @@ NO_PCI:
  *
  * Handle the removal of a DVB Master Send.
  * This function may be called during PCI probe error handling,
- * so don't mark it as __devexit.
+ * so don't mark it as __exit.
  **/
 void
 dvbm_tx_pci_remove (struct pci_dev *pdev)

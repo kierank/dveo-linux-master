@@ -26,7 +26,7 @@
 #define _DVBM_QI_H
 
 #include <linux/pci.h> /* pci_dev */
-#include <linux/init.h> /* __devinit */
+#include <linux/init.h> /* __init */
 
 #define DVBM_PCI_DEVICE_ID_LINSYS_DVBQI 0x0069
 #define DVBM_NAME_DVBQI "DVB Master Q/i"
@@ -125,7 +125,7 @@
 
 /* External function prototypes */
 
-int dvbm_qi_pci_probe (struct pci_dev *pdev) __devinit;
+int dvbm_qi_pci_probe (struct pci_dev *pdev) __init;
 void dvbm_qi_pci_remove (struct pci_dev *pdev);
 
 #endif

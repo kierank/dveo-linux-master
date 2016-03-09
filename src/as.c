@@ -74,7 +74,7 @@ static ssize_t mmas_show_uid (struct device *dev,
 	struct device_attribute *attr,
 	char *buf);
 static int mmas_pci_probe (struct pci_dev *pdev,
-	const struct pci_device_id *id) __devinit;
+	const struct pci_device_id *id) __init;
 static void mmas_pci_remove (struct pci_dev *pdev);
 static irqreturn_t IRQ_HANDLER(mmas_irq_handler,irq,dev_id,regs);
 static void mmas_txinit (struct master_iface *iface);
@@ -259,7 +259,7 @@ static DEVICE_ATTR(uid,S_IRUGO,
  * Handle the insertion of a MultiMaster SDI-T.
  * Returns a negative error code on failure and 0 on success.
  **/
-static int __devinit
+static int __init
 mmas_pci_probe (struct pci_dev *pdev,
 	const struct pci_device_id *id)
 {
@@ -450,7 +450,7 @@ NO_MEM:
  * @pdev: PCI device
  *
  * This function may be called during PCI probe error handling,
- * so don't mark it as __devexit.
+ * so don't mark it as __exit.
  **/
 static void
 mmas_pci_remove (struct pci_dev *pdev)

@@ -32,7 +32,7 @@
 #include <linux/list.h> /* INIT_LIST_HEAD () */
 #include <linux/poll.h> /* poll_table */
 #include <linux/spinlock.h> /* spin_lock_init () */
-#include <linux/init.h> /* __devinit */
+#include <linux/init.h> /* __init */
 #include <linux/errno.h> /* error codes */
 #include <linux/interrupt.h> /* irqreturn_t */
 #include <linux/device.h> /* device_create_file () */
@@ -217,7 +217,7 @@ static DEVICE_ATTR(uid,S_IRUGO,
  * Handle the insertion of a DVB Master Quad-2in2out.
  * Returns a negative error code on failure and 0 on success.
  **/
-int __devinit
+int __init
 dvbm_qdual_pci_probe (struct pci_dev *pdev)
 {
 	int err, i;
@@ -486,7 +486,7 @@ NO_PCI:
  *
  * Handle the removal of a DVB Master Quad-2in2out.
  * This function may be called during PCI probe error handling,
- * so don't mark it as __devexit.
+ * so don't mark it as __exit.
  **/
 void
 dvbm_qdual_pci_remove (struct pci_dev *pdev)

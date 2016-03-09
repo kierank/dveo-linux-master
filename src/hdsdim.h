@@ -27,7 +27,7 @@
 #define _HDSDIM_H
 
 #include <linux/pci.h> /* pci_dev */
-#include <linux/init.h> /* __devinit */
+#include <linux/init.h> /* __init */
 
 #include "mdev.h"
 
@@ -37,7 +37,7 @@ extern char hdsdim_driver_name[];
 
 /* External function prototypes */
 
-int hdsdim_pci_probe_generic (struct pci_dev *pdev) __devinit;
+int hdsdim_pci_probe_generic (struct pci_dev *pdev) __init;
 void hdsdim_pci_remove_generic (struct pci_dev *pdev);
 int hdsdim_register (struct master_dev *card);
 void hdsdim_unregister_all (struct master_dev *card);

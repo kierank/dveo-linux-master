@@ -26,7 +26,7 @@
 #define _DVBM_LPQO_H
 
 #include <linux/pci.h> /* pci_dev */
-#include <linux/init.h> /* __devinit */
+#include <linux/init.h> /* __init */
 
 #define DVBM_PCI_DEVICE_ID_LINSYS_DVBLPQOE 0x0095
 #define DVBM_PCI_DEVICE_ID_LINSYS_DVBLPQOE_MINIBNC 0x00AC
@@ -97,7 +97,7 @@
 
 /* External function prototypes */
 
-int dvbm_lpqo_pci_probe (struct pci_dev *pdev) __devinit;
+int dvbm_lpqo_pci_probe (struct pci_dev *pdev) __init;
 void dvbm_lpqo_pci_remove (struct pci_dev *pdev);
 
 #endif

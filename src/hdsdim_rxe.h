@@ -26,7 +26,7 @@
 #define _HDSDIM_RXE_H
 
 #include <linux/pci.h> /* pci_dev */
-#include <linux/init.h> /* __devinit */
+#include <linux/init.h> /* __init */
 
 #define HDSDIM_PCI_DEVICE_ID_LINSYS_HDSDIRXE 0x00c8
 #define HDSDIM_NAME_RXE		"VidPort SD/HD I"
@@ -133,7 +133,7 @@
 
 /* External function prototypes */
 
-int hdsdim_rxe_pci_probe (struct pci_dev *pdev) __devinit;
+int hdsdim_rxe_pci_probe (struct pci_dev *pdev) __init;
 void hdsdim_rxe_pci_remove (struct pci_dev *pdev);
 
 #endif
