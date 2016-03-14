@@ -168,9 +168,9 @@ miface_open (struct inode *inode, struct file *filp)
 	filp->private_data = iface;
 	mutex_lock (&card->users_mutex);
 	if (iface->users) {
-		if (((iface->owner != current_uid()) &&
-			(iface->owner != current_euid()) &&
-			!capable (CAP_DAC_OVERRIDE))) {
+		if (!uid_eq(iface->owner, current_uid()) &&
+			!uid_eq(iface->owner, current_euid()) &&
+			!capable (CAP_DAC_OVERRIDE)) {
 			mutex_unlock (&card->users_mutex);
 			return -EBUSY;
 		}
