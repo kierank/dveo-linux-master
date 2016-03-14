@@ -152,7 +152,7 @@ struct master_iface {
 	struct device *dev;
 	struct master_iface_operations *ops;
 	unsigned int users;
-	uid_t owner;
+	kuid_t owner;
 	volatile unsigned long events;
 	struct master_dma_operations *dma_ops;
 	u32 data_addr;
