@@ -27,6 +27,7 @@
 #include <linux/spinlock.h> /* spin_lock_init () */
 #include <linux/errno.h> /* error codes */
 #include <linux/mm.h> /* get_page () */
+#include <linux/sched.h> /* struct task_struct */
 
 #include <asm/bitops.h> /* clear_bit () */
 #include <asm/uaccess.h> /* copy_from_user () */
