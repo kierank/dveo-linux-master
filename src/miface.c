@@ -60,13 +60,13 @@ static const char fmt_u[] = "%u\n";
 static const char fmt_x[] = "0x%04X\n";
 
 /**
- * miface_show_version - class attribute read handler
+ * version_show - class attribute read handler
  * @cls: class being read
  * @attr: class attribute
  * @buf: output buffer
  **/
 ssize_t
-miface_show_version (struct class *cls,
+version_show (struct class *cls,
 	struct class_attribute *attr,
 	char *buf)
 {

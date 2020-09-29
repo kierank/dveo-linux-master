@@ -169,7 +169,7 @@ struct master_iface {
 #if (LINUX_VERSION_CODE < KERNEL_VERSION(2,6,34))
 #define miface_show_version(cls,attr,buf) miface_show_version(cls,buf)
 #endif
-ssize_t miface_show_version (struct class *cls,
+ssize_t version_show (struct class *cls,
 	struct class_attribute *attr,
 	char *buf);
 ssize_t miface_show_buffers (struct device *dev,

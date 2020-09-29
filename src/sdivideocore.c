@@ -138,8 +138,7 @@ static spinlock_t sdivideo_iface_lock;
 #endif
 
 static struct class *sdivideo_class;
-static CLASS_ATTR(version,S_IRUGO,
-	miface_show_version,NULL);
+static CLASS_ATTR_RO(version);
 
 /**
  * sdivideo_open - SMPTE 292M and SMPTE 259M-C video interface open() method

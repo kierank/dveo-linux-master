@@ -110,8 +110,7 @@ static spinlock_t sdi_iface_lock;
 #endif
 
 static struct class *sdi_class;
-static CLASS_ATTR(version,S_IRUGO,
-	miface_show_version,NULL);
+static CLASS_ATTR_RO(version);
 
 /**
  * sdi_open - SDI interface open() method

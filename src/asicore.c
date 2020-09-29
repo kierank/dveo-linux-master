@@ -121,8 +121,7 @@ static spinlock_t asi_iface_lock;
 #endif
 
 static struct class *asi_class;
-static CLASS_ATTR(version,S_IRUGO,
-	miface_show_version,NULL);
+static CLASS_ATTR_RO(version);
 
 /**
  * asi_open - ASI interface open() method
