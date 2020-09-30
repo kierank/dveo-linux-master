@@ -39,8 +39,8 @@
 #include <linux/cdev.h> /* cdev_init () */
 #include <linux/mutex.h> /* mutex_init () */
 
-#include <asm/uaccess.h> /* put_user () */
-#include <asm/bitops.h> /* test_and_clear_bit () */
+#include <linux/uaccess.h> /* put_user () */
+#include <linux/bitops.h> /* test_and_clear_bit () */
 
 #include "asicore.h"
 #include "../include/master.h"

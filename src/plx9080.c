@@ -30,7 +30,7 @@
 #include <linux/errno.h> /* error codes */
 #include <linux/delay.h> /* msleep () */
 
-#include <asm/bitops.h> /* clear_bit () */
+#include <linux/bitops.h> /* clear_bit () */
 #include <linux/uaccess.h> /* copy_from_user () */
 
 #include "plx9080.h"

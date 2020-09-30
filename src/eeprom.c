@@ -25,7 +25,7 @@
 #include <linux/sched.h> /* schedule_timeout () */
 #include <linux/delay.h> /* udelay () */
 
-#include <asm/io.h> /* readl () */
+#include <linux/io.h> /* readl () */
 
 #include "plx9080.h"
 #include "eeprom.h"

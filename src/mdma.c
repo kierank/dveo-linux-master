@@ -30,8 +30,8 @@
 #include <linux/mm_types.h> /* vm_fault_t */
 #include <linux/sched.h> /* struct task_struct */
 
-#include <asm/bitops.h> /* clear_bit () */
-#include <asm/uaccess.h> /* copy_from_user () */
+#include <linux/bitops.h> /* clear_bit () */
+#include <linux/uaccess.h> /* copy_from_user () */
 
 #include "mdma.h"
 

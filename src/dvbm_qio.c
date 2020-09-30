@@ -36,7 +36,7 @@
 #include <linux/interrupt.h> /* irqreturn_t */
 #include <linux/mutex.h> /* mutex_lock () */
 
-#include <asm/uaccess.h> /* put_user () */
+#include <linux/uaccess.h> /* put_user () */
 
 #include "asicore.h"
 #include "../include/master.h"

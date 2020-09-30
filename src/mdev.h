@@ -34,7 +34,7 @@
 #include <linux/mutex.h> /* mutex */
 #include <linux/module.h> 
 
-#include <asm/io.h> /* inl () */
+#include <linux/io.h> /* inl () */
 
 #if (LINUX_VERSION_CODE < KERNEL_VERSION(2,6,18))
 typedef unsigned long resource_size_t;
