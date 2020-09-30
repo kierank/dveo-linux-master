@@ -10,20 +10,20 @@ dvbm-objs := dvbmaster.o mdev.o \
 	dvbm_fd.o dvbm_fdu.o dvbm_rx.o dvbm_rxu.o dvbm_tx.o dvbm_txu.o \
 	dvbm_lpfd.o dvbm_qlf.o dvbm_qi.o \
 	dvbm_qio.o dvbm_qo.o dvbm_qdual.o dvbm_q3ioe.o dvbm_q3inoe.o \
-	dvbm_lptxe.o dvbm_lprxe.o dvbm_lpqo.o
+	dvbm_lptxe.o dvbm_lprxe.o dvbm_lpqo.o miface.o mdma.o
 ls_as-objs := asmi.o eeprom.o
 ls_jtag-objs := jtag.o eeprom.o
 sdi-objs := sdicore.o miface.o mdma.o
 sdiaudio-objs := sdiaudiocore.o miface.o mdma.o
 sdivideo-objs := sdivideocore.o miface.o mdma.o
-sdim-objs := sdimaster.o mdev.o plx9080.o
-sdilpm-objs := sdim_lpfd.o mdev.o lsdma.o
-sdiqoe-objs := sdim_qoe.o mdev.o lsdma.o
-sdiqie-objs := sdim_qie.o mdev.o plx9080.o lsdma.o
+sdim-objs := sdimaster.o mdev.o plx9080.o miface.o mdma.o
+sdilpm-objs := sdim_lpfd.o mdev.o lsdma.o miface.o mdma.o
+sdiqoe-objs := sdim_qoe.o mdev.o lsdma.o miface.o mdma.o
+sdiqie-objs := sdim_qie.o mdev.o plx9080.o lsdma.o miface.o mdma.o
 hdsdim-objs := hdsdimaster.o mdev.o lsdma.o \
-	hdsdim_qie.o hdsdim_txe.o hdsdim_rxe.o
-mmas-objs := as.o mdev.o plx9080.o
-mmsa-objs := sa.o mdev.o plx9080.o
+	hdsdim_qie.o hdsdim_txe.o hdsdim_rxe.o miface.o mdma.o
+mmas-objs := as.o mdev.o plx9080.o miface.o mdma.o
+mmsa-objs := sa.o mdev.o plx9080.o miface.o mdma.o
 
 else
 
