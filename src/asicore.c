@@ -39,8 +39,8 @@
 #include <linux/cdev.h> /* cdev_init () */
 #include <linux/mutex.h> /* mutex_init () */
 
-#include <asm/uaccess.h> /* put_user () */
-#include <asm/bitops.h> /* test_and_clear_bit () */
+#include <linux/uaccess.h> /* put_user () */
+#include <linux/bitops.h> /* test_and_clear_bit () */
 
 #include "asicore.h"
 #include "../include/master.h"
@@ -121,8 +121,7 @@ static spinlock_t asi_iface_lock;
 #endif
 
 static struct class *asi_class;
-static CLASS_ATTR(version,S_IRUGO,
-	miface_show_version,NULL);
+static CLASS_ATTR_RO(version);
 
 /**
  * asi_open - ASI interface open() method

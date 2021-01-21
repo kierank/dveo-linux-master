@@ -36,6 +36,7 @@
 
 #include "../include/master.h"
 #include "mdev.h"
+#include "miface.h"
 
 #if LINUX_VERSION_CODE < KERNEL_VERSION(2,6,26)
 static inline const char *
@@ -200,8 +201,7 @@ mdev_show_version (struct class *cls,
 	return snprintf (buf, PAGE_SIZE, "%s\n", MASTER_DRIVER_VERSION);
 }
 
-static CLASS_ATTR(version,S_IRUGO,
-	mdev_show_version,NULL);
+static CLASS_ATTR_RO(version);
 
 /**
  * mdev_init - create the device class

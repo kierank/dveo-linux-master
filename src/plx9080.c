@@ -30,8 +30,8 @@
 #include <linux/errno.h> /* error codes */
 #include <linux/delay.h> /* msleep () */
 
-#include <asm/bitops.h> /* clear_bit () */
-#include <asm/uaccess.h> /* copy_from_user () */
+#include <linux/bitops.h> /* clear_bit () */
+#include <linux/uaccess.h> /* copy_from_user () */
 
 #include "plx9080.h"
 #include "mdma.h"

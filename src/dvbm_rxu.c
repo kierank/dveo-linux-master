@@ -35,7 +35,7 @@
 #include <linux/interrupt.h> /* irqreturn_t */
 #include <linux/mutex.h> /* mutex_init () */
 
-#include <asm/bitops.h> /* set_bit () */
+#include <linux/bitops.h> /* set_bit () */
 
 #include "asicore.h"
 #include "../include/master.h"

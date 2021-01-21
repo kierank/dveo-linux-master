@@ -39,8 +39,8 @@
 #include <linux/device.h> /* class_create () */
 #include <linux/mutex.h> /* mutex_init () */
 
-#include <asm/io.h> /* readl () */
-#include <asm/uaccess.h> /* put_user () */
+#include <linux/io.h> /* readl () */
+#include <linux/uaccess.h> /* put_user () */
 
 #include "../include/master.h"
 #include "plx9080.h"

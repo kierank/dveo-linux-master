@@ -27,9 +27,11 @@
 #include <linux/spinlock.h> /* spin_lock_init () */
 #include <linux/errno.h> /* error codes */
 #include <linux/mm.h> /* get_page () */
+#include <linux/mm_types.h> /* vm_fault_t */
+#include <linux/sched.h> /* struct task_struct */
 
-#include <asm/bitops.h> /* clear_bit () */
-#include <asm/uaccess.h> /* copy_from_user () */
+#include <linux/bitops.h> /* clear_bit () */
+#include <linux/uaccess.h> /* copy_from_user () */
 
 #include "mdma.h"
 
@@ -43,9 +45,19 @@ static struct page *mdma_nopage (struct vm_area_struct *vma,
 struct vm_operations_struct mdma_vm_ops = {
 	.nopage = mdma_nopage
 };
-#else
+#elif (LINUX_VERSION_CODE < KERNEL_VERSION(4,11,0))
 static int mdma_fault (struct vm_area_struct *vma,
 	struct vm_fault *vmf);
+struct vm_operations_struct mdma_vm_ops = {
+	.fault = mdma_fault
+};
+#elif (LINUX_VERSION_CODE < KERNEL_VERSION(4,17,0))
+static int mdma_fault (struct vm_fault *vmf);
+struct vm_operations_struct mdma_vm_ops = {
+	.fault = mdma_fault
+};
+#else
+static vm_fault_t mdma_fault (struct vm_fault *vmf);
 struct vm_operations_struct mdma_vm_ops = {
 	.fault = mdma_fault
 };
@@ -266,7 +278,7 @@ mdma_nopage (struct vm_area_struct *vma,
 OUT:
 	return pg;
 }
-#else
+#elif (LINUX_VERSION_CODE < KERNEL_VERSION(4,11,0))
 /**
  * mdma_fault - page fault handler
  * @vma: VMA
@@ -278,6 +290,46 @@ static int
 mdma_fault (struct vm_area_struct *vma,
 	struct vm_fault *vmf)
 {
+	struct master_dma *dma = vma->vm_private_data;
+
+	if (vmf->pgoff >= dma->pointers_per_buf * dma->buffers) {
+		return VM_FAULT_SIGBUS;
+	}
+	vmf->page = virt_to_page (dma->vpage[vmf->pgoff]);
+	get_page (vmf->page);
+	return 0;
+}
+#elif (LINUX_VERSION_CODE < KERNEL_VERSION(4,17,0))
+/**
+ * mdma_fault - page fault handler
+ * @vmf: vm_fault structure
+ *
+ * Arrange for a missing page to exist and return its address.
+ **/
+static int
+mdma_fault (struct vm_fault *vmf)
+{
+	struct vm_area_struct *vma = vmf->vma;
+	struct master_dma *dma = vma->vm_private_data;
+
+	if (vmf->pgoff >= dma->pointers_per_buf * dma->buffers) {
+		return VM_FAULT_SIGBUS;
+	}
+	vmf->page = virt_to_page (dma->vpage[vmf->pgoff]);
+	get_page (vmf->page);
+	return 0;
+}
+#else
+/**
+ * mdma_fault - page fault handler
+ * @vmf: vm_fault structure
+ *
+ * Arrange for a missing page to exist and return its address.
+ **/
+static vm_fault_t
+mdma_fault (struct vm_fault *vmf)
+{
+	struct vm_area_struct *vma = vmf->vma;
 	struct master_dma *dma = vma->vm_private_data;
 
 	if (vmf->pgoff >= dma->pointers_per_buf * dma->buffers) {

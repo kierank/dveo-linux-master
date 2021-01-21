@@ -28,7 +28,7 @@
 #include <linux/dmapool.h> /* dma_pool_create () */
 #include <linux/errno.h> /* error codes */
 
-#include <asm/uaccess.h> /* copy_to_user () */
+#include <linux/uaccess.h> /* copy_to_user () */
 
 #include "gt64131.h"
 #include "mdma.h"

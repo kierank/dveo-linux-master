@@ -30,6 +30,7 @@
 #include <linux/poll.h> /* poll_wait () */
 #include <linux/dma-mapping.h> /* DMA_FROM_DEVICE */
 #include <linux/mutex.h> /* mutex_lock () */
+#include <linux/cred.h> /* current_uid () */
 
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(3,2,0)
 #include <linux/module.h> /* modules */
@@ -60,13 +61,13 @@ static const char fmt_u[] = "%u\n";
 static const char fmt_x[] = "0x%04X\n";
 
 /**
- * miface_show_version - class attribute read handler
+ * version_show - class attribute read handler
  * @cls: class being read
  * @attr: class attribute
  * @buf: output buffer
  **/
 ssize_t
-miface_show_version (struct class *cls,
+version_show (struct class *cls,
 	struct class_attribute *attr,
 	char *buf)
 {
