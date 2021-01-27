@@ -525,6 +525,7 @@ IRQ_HANDLER (dvbm_qdual_irq_handler, irq, dev_id, regs)
 	unsigned int dmaintsrc = readl (card->bridge_addr + LSDMA_INTSRC);
 	unsigned int status, interrupting_iface = 0;
 	unsigned int i;
+	unsigned long flags;
 
 	for (i = 0 ; i < 2; i++) {
 		p = p->next;
@@ -532,10 +533,9 @@ IRQ_HANDLER (dvbm_qdual_irq_handler, irq, dev_id, regs)
 
 		if (dmaintsrc & LSDMA_INTSRC_CH(i)) {
 			/* Read the interrupt type and clear it */
-			spin_lock (&card->irq_lock);
+			spin_lock_irqsave  (&card->irq_lock, flags);
 			status = readl (card->bridge_addr + LSDMA_CSR(i));
 			writel (status, card->bridge_addr + LSDMA_CSR(i));
-			spin_unlock (&card->irq_lock);
 			/* Increment the buffer pointer */
 			if (status & LSDMA_CH_CSR_INTSRCBUFFER) {
 				mdma_advance (iface->dma);
@@ -554,9 +554,10 @@ IRQ_HANDLER (dvbm_qdual_irq_handler, irq, dev_id, regs)
 			}
 
 			interrupting_iface |= 0x1 << i;
+			spin_unlock_irqrestore  (&card->irq_lock, flags);
 		}
 
-		spin_lock (&card->irq_lock);
+		spin_lock_irqsave  (&card->irq_lock, flags);
 		status = readl (card->core.addr + DVBM_QDUAL_ICSR(i));
 		writel (status, card->core.addr + DVBM_QDUAL_ICSR(i));
 
@@ -570,7 +571,7 @@ IRQ_HANDLER (dvbm_qdual_irq_handler, irq, dev_id, regs)
 				&iface->events);
 			interrupting_iface |= 0x1 << i;
 		}
-		spin_unlock (&card->irq_lock);
+		spin_unlock_irqrestore  (&card->irq_lock, flags);
 
 		if (interrupting_iface & 0x1 << i) {
 			wake_up (&iface->queue);
@@ -585,10 +586,9 @@ IRQ_HANDLER (dvbm_qdual_irq_handler, irq, dev_id, regs)
 			struct master_dma *dma = iface->dma;
 
 			/* Read the interrupt type and clear it */
-			spin_lock (&card->irq_lock);
+			spin_lock_irqsave  (&card->irq_lock, flags);
 			status = readl (card->bridge_addr + LSDMA_CSR(i));
 			writel (status, card->bridge_addr + LSDMA_CSR(i));
-			spin_unlock (&card->irq_lock);
 
 			/* Increment the buffer pointer */
 			if (status & LSDMA_CH_CSR_INTSRCBUFFER) {
@@ -610,9 +610,10 @@ IRQ_HANDLER (dvbm_qdual_irq_handler, irq, dev_id, regs)
 			}
 
 			interrupting_iface |= 0x1 << i;
+			spin_unlock_irqrestore  (&card->irq_lock, flags);
 		}
 
-		spin_lock (&card->irq_lock);
+		spin_lock_irqsave  (&card->irq_lock, flags);
 		status = readl (card->core.addr + DVBM_QDUAL_ICSR(i));
 		writel (status, card->core.addr + DVBM_QDUAL_ICSR(i));
 
@@ -645,7 +646,7 @@ IRQ_HANDLER (dvbm_qdual_irq_handler, irq, dev_id, regs)
 		if (interrupting_iface & 0x1 << i) {
 			wake_up (&iface->queue);
 		}
-		spin_unlock (&card->irq_lock);
+		spin_unlock_irqrestore  (&card->irq_lock, flags);
 	}
 
 	/* Check and clear the source of the interrupt */
