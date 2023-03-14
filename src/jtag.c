@@ -719,11 +719,11 @@ lsj_pci_probe (struct pci_dev *pdev,
 		bridge_bar = DEVICE_COUNT_RESOURCE;
 		break;
 	}
-	card->core_addr = ioremap_nocache (pci_resource_start (pdev, core_bar),
+	card->core_addr = ioremap (pci_resource_start (pdev, core_bar),
 		pci_resource_len (pdev, core_bar));
 	card->data_addr = card->core_addr + jtag_addr;
 	if (bridge_bar < DEVICE_COUNT_RESOURCE) {
-		card->bridge_addr = ioremap_nocache (pci_resource_start (pdev, bridge_bar),
+		card->bridge_addr = ioremap (pci_resource_start (pdev, bridge_bar),
 			pci_resource_len (pdev, bridge_bar));
 	}
 	mutex_init (&card->lock);

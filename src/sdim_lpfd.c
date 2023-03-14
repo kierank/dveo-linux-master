@@ -305,18 +305,18 @@ sdim_pci_probe (struct pci_dev *pdev,
 	switch (pdev->device) {
 	default:
 	case SDIM_PCI_DEVICE_ID_LINSYS_SDILPFD:
-		card->bridge_addr = ioremap_nocache (pci_resource_start (pdev, 1),
+		card->bridge_addr = ioremap (pci_resource_start (pdev, 1),
 			pci_resource_len (pdev, 1));
 		card->name = sdim_lpfd_name;
 		break;
 	case SDIM_PCI_DEVICE_ID_LINSYS_SDILPFDE:
-		card->bridge_addr = ioremap_nocache (pci_resource_start (pdev, 2),
+		card->bridge_addr = ioremap (pci_resource_start (pdev, 2),
 			pci_resource_len (pdev, 2));
 		card->name = sdim_lpfde_name;
 		break;
 	}
 	/* SDI Core */
-	card->core.addr = ioremap_nocache (pci_resource_start (pdev, 0),
+	card->core.addr = ioremap (pci_resource_start (pdev, 0),
 		pci_resource_len (pdev, 0));
 	card->version = readl (card->core.addr + SDIM_CSR) >> 16;
 	card->id = pdev->device;

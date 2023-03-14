@@ -586,65 +586,65 @@ lsa_pci_probe (struct pci_dev *pdev,
 	switch (id->device) {
 	case SDIM_PCI_DEVICE_ID_LINSYS_SDIQIE:
 		name = SDIM_NAME_QIE;
-		card->flash_addr = ioremap_nocache (pci_resource_start (pdev, 2),
+		card->flash_addr = ioremap (pci_resource_start (pdev, 2),
 			pci_resource_len (pdev, 2));
 		card->data_addr = card->flash_addr + SDIM_QIE_ASMIR;
-		card->bridge_addr = ioremap_nocache (
+		card->bridge_addr = ioremap (
 			pci_resource_start (pdev, 0),
 			pci_resource_len (pdev, 0));
 		break;
 	case SDIM_PCI_DEVICE_ID_LINSYS_SDIQI:
 		name = SDIM_NAME_QIE;
-		card->flash_addr = ioremap_nocache (pci_resource_start (pdev, 2),
+		card->flash_addr = ioremap (pci_resource_start (pdev, 2),
 			pci_resource_len (pdev, 2));
 		card->data_addr = card->flash_addr + SDIM_QIE_ASMIR;
-		card->bridge_addr = ioremap_nocache (
+		card->bridge_addr = ioremap (
 			pci_resource_start (pdev, 0),
 			pci_resource_len (pdev, 0));
 		break;
 	case DVBM_PCI_DEVICE_ID_LINSYS_DVBQDUAL:
 		name = DVBM_NAME_QDUAL;
-		card->flash_addr = ioremap_nocache (pci_resource_start (pdev, 2),
+		card->flash_addr = ioremap (pci_resource_start (pdev, 2),
 			pci_resource_len (pdev, 2));
 		card->data_addr = card->flash_addr + DVBM_QDUAL_ASMIR;
-		card->bridge_addr = ioremap_nocache (
+		card->bridge_addr = ioremap (
 			pci_resource_start(pdev, 0),
 			pci_resource_len (pdev, 0));
 		break;
 	case DVBM_PCI_DEVICE_ID_LINSYS_DVBQDUALE:
 		name = DVBM_NAME_QDUALE;
-		card->flash_addr = ioremap_nocache (pci_resource_start (pdev, 2),
+		card->flash_addr = ioremap (pci_resource_start (pdev, 2),
 			pci_resource_len (pdev, 2));
 		card->data_addr = card->flash_addr + DVBM_QDUAL_ASMIR;
-		card->bridge_addr = ioremap_nocache (
+		card->bridge_addr = ioremap (
 			pci_resource_start(pdev, 0),
 			pci_resource_len (pdev, 0));
 		break;
 	case DVBM_PCI_DEVICE_ID_LINSYS_DVBQO:
 		name = DVBM_NAME_QO;
-		card->flash_addr = ioremap_nocache (pci_resource_start (pdev, 2),
+		card->flash_addr = ioremap (pci_resource_start (pdev, 2),
 			pci_resource_len (pdev, 2));
 		card->data_addr = card->flash_addr + DVBM_QIO_ASMIR;
-		card->bridge_addr = ioremap_nocache (
+		card->bridge_addr = ioremap (
 			pci_resource_start(pdev, 0),
 			pci_resource_len (pdev, 0));
 		break;
 	case DVBM_PCI_DEVICE_ID_LINSYS_DVBQOE:
 		name = DVBM_NAME_QOE;
-		card->flash_addr = ioremap_nocache (pci_resource_start (pdev, 2),
+		card->flash_addr = ioremap (pci_resource_start (pdev, 2),
 			pci_resource_len (pdev, 2));
 		card->data_addr = card->flash_addr + DVBM_QIO_ASMIR;
-		card->bridge_addr = ioremap_nocache (
+		card->bridge_addr = ioremap (
 			pci_resource_start(pdev, 0),
 			pci_resource_len (pdev, 0));
 		break;
 	case DVBM_PCI_DEVICE_ID_LINSYS_DVBQI:
 		name = DVBM_NAME_DVBQI;
-		card->flash_addr = ioremap_nocache (pci_resource_start (pdev, 3),
+		card->flash_addr = ioremap (pci_resource_start (pdev, 3),
 			pci_resource_len (pdev, 3));
 		card->data_addr = card->flash_addr;
 		/* Setup the bridge */
-		card->bridge_addr = ioremap_nocache (
+		card->bridge_addr = ioremap (
 			pci_resource_start (pdev, 4),
 			pci_resource_len (pdev, 4));
 		writel (DVBM_QI_TURNOFF |
@@ -685,217 +685,217 @@ lsa_pci_probe (struct pci_dev *pdev,
 	case DVBM_PCI_DEVICE_ID_LINSYS_DVBQLF:
 	case DVBM_PCI_DEVICE_ID_LINSYS_DVBQLF4:
 		name = DVBM_NAME_QLF;
-		card->flash_addr = ioremap_nocache (pci_resource_start (pdev, 2),
+		card->flash_addr = ioremap (pci_resource_start (pdev, 2),
 			pci_resource_len (pdev, 2));
 		card->data_addr = card->flash_addr + DVBM_QLF_ASMIR;
-		card->bridge_addr = ioremap_nocache (
+		card->bridge_addr = ioremap (
 			pci_resource_start (pdev, 0),
 			pci_resource_len (pdev, 0));
 		break;
 	case DVBM_PCI_DEVICE_ID_LINSYS_DVB2FD:
 		name = DVBM_NAME_2FD;
-		card->flash_addr = ioremap_nocache (pci_resource_start (pdev, 3),
+		card->flash_addr = ioremap (pci_resource_start (pdev, 3),
 			pci_resource_len (pdev, 3));
 		card->data_addr = card->flash_addr + DVBM_FDU_ASMIR;
-		card->bridge_addr = ioremap_nocache (
+		card->bridge_addr = ioremap (
 			pci_resource_start (pdev, 0),
 			pci_resource_len (pdev, 0));
 		break;
 	case DVBM_PCI_DEVICE_ID_LINSYS_DVB2FD_R:
 		name = DVBM_NAME_2FD_R;
-		card->flash_addr = ioremap_nocache (pci_resource_start (pdev, 3),
+		card->flash_addr = ioremap (pci_resource_start (pdev, 3),
 			pci_resource_len (pdev, 3));
 		card->data_addr = card->flash_addr + DVBM_FDU_ASMIR;
-		card->bridge_addr = ioremap_nocache (
+		card->bridge_addr = ioremap (
 			pci_resource_start (pdev, 0),
 			pci_resource_len (pdev, 0));
 		break;
 	case DVBM_PCI_DEVICE_ID_LINSYS_DVB2FD_RS:
 		name = DVBM_NAME_2FD_RS;
-		card->flash_addr = ioremap_nocache (pci_resource_start (pdev, 3),
+		card->flash_addr = ioremap (pci_resource_start (pdev, 3),
 			pci_resource_len (pdev, 3));
 		card->data_addr = card->flash_addr + DVBM_FDU_ASMIR;
-		card->bridge_addr = ioremap_nocache (
+		card->bridge_addr = ioremap (
 			pci_resource_start (pdev, 0),
 			pci_resource_len (pdev, 0));
 		break;
 	case ATSCM_PCI_DEVICE_ID_LINSYS_2FD:
 		name = ATSCM_NAME_2FD;
-		card->flash_addr = ioremap_nocache (pci_resource_start (pdev, 3),
+		card->flash_addr = ioremap (pci_resource_start (pdev, 3),
 			pci_resource_len (pdev, 3));
 		card->data_addr = card->flash_addr + DVBM_FDU_ASMIR;
-		card->bridge_addr = ioremap_nocache (
+		card->bridge_addr = ioremap (
 			pci_resource_start (pdev, 0),
 			pci_resource_len (pdev, 0));
 		break;
 	case ATSCM_PCI_DEVICE_ID_LINSYS_2FD_R:
 		name = ATSCM_NAME_2FD_R;
-		card->flash_addr = ioremap_nocache (pci_resource_start (pdev, 3),
+		card->flash_addr = ioremap (pci_resource_start (pdev, 3),
 			pci_resource_len (pdev, 3));
 		card->data_addr = card->flash_addr + DVBM_FDU_ASMIR;
-		card->bridge_addr = ioremap_nocache (
+		card->bridge_addr = ioremap (
 			pci_resource_start (pdev, 0),
 			pci_resource_len (pdev, 0));
 		break;
 	case ATSCM_PCI_DEVICE_ID_LINSYS_2FD_RS:
 		name = ATSCM_NAME_2FD_RS;
-		card->flash_addr = ioremap_nocache (pci_resource_start (pdev, 3),
+		card->flash_addr = ioremap (pci_resource_start (pdev, 3),
 			pci_resource_len (pdev, 3));
 		card->data_addr = card->flash_addr + DVBM_FDU_ASMIR;
-		card->bridge_addr = ioremap_nocache (
+		card->bridge_addr = ioremap (
 			pci_resource_start (pdev, 0),
 			pci_resource_len (pdev, 0));
 		break;
 	case DVBM_PCI_DEVICE_ID_LINSYS_DVB2FDE:
 		name = DVBM_NAME_2FDE;
-		card->flash_addr = ioremap_nocache (pci_resource_start (pdev, 3),
+		card->flash_addr = ioremap (pci_resource_start (pdev, 3),
 			pci_resource_len (pdev, 3));
 		card->data_addr = card->flash_addr + DVBM_FDU_ASMIR;
-		card->bridge_addr = ioremap_nocache (
+		card->bridge_addr = ioremap (
 			pci_resource_start (pdev, 0),
 			pci_resource_len (pdev, 0));
 		break;
 	case DVBM_PCI_DEVICE_ID_LINSYS_DVB2FDE_R:
 		name = DVBM_NAME_2FDE_R;
-		card->flash_addr = ioremap_nocache (pci_resource_start (pdev, 3),
+		card->flash_addr = ioremap (pci_resource_start (pdev, 3),
 			pci_resource_len (pdev, 3));
 		card->data_addr = card->flash_addr + DVBM_FDU_ASMIR;
-		card->bridge_addr = ioremap_nocache (
+		card->bridge_addr = ioremap (
 			pci_resource_start (pdev, 0),
 			pci_resource_len (pdev, 0));
 		break;
 	case DVBM_PCI_DEVICE_ID_LINSYS_DVB2FDE_RS:
 		name = DVBM_NAME_2FDE_RS;
-		card->flash_addr = ioremap_nocache (pci_resource_start (pdev, 3),
+		card->flash_addr = ioremap (pci_resource_start (pdev, 3),
 			pci_resource_len (pdev, 3));
 		card->data_addr = card->flash_addr + DVBM_FDU_ASMIR;
-		card->bridge_addr = ioremap_nocache (
+		card->bridge_addr = ioremap (
 			pci_resource_start (pdev, 0),
 			pci_resource_len (pdev, 0));
 		break;
 	case ATSCM_PCI_DEVICE_ID_LINSYS_2FDE:
 		name = ATSCM_NAME_2FDE;
-		card->flash_addr = ioremap_nocache (pci_resource_start (pdev, 3),
+		card->flash_addr = ioremap (pci_resource_start (pdev, 3),
 			pci_resource_len (pdev, 3));
 		card->data_addr = card->flash_addr + DVBM_FDU_ASMIR;
-		card->bridge_addr = ioremap_nocache (
+		card->bridge_addr = ioremap (
 			pci_resource_start (pdev, 0),
 			pci_resource_len (pdev, 0));
 		break;
 	case ATSCM_PCI_DEVICE_ID_LINSYS_2FDE_R:
 		name = ATSCM_NAME_2FDE_R;
-		card->flash_addr = ioremap_nocache (pci_resource_start (pdev, 3),
+		card->flash_addr = ioremap (pci_resource_start (pdev, 3),
 			pci_resource_len (pdev, 3));
 		card->data_addr = card->flash_addr + DVBM_FDU_ASMIR;
-		card->bridge_addr = ioremap_nocache (
+		card->bridge_addr = ioremap (
 			pci_resource_start (pdev, 0),
 			pci_resource_len (pdev, 0));
 		break;
 	case DVBM_PCI_DEVICE_ID_LINSYS_DVBFDE:
 		name = DVBM_NAME_FDE;
-		card->flash_addr = ioremap_nocache (pci_resource_start (pdev, 3),
+		card->flash_addr = ioremap (pci_resource_start (pdev, 3),
 			pci_resource_len (pdev, 3));
 		card->data_addr = card->flash_addr + DVBM_FDU_ASMIR;
-		card->bridge_addr = ioremap_nocache (
+		card->bridge_addr = ioremap (
 			pci_resource_start (pdev, 0),
 			pci_resource_len (pdev, 0));
 		break;
 	case DVBM_PCI_DEVICE_ID_LINSYS_DVBFDE_R:
 		name = DVBM_NAME_FDE_R;
-		card->flash_addr = ioremap_nocache (pci_resource_start (pdev, 3),
+		card->flash_addr = ioremap (pci_resource_start (pdev, 3),
 			pci_resource_len (pdev, 3));
 		card->data_addr = card->flash_addr + DVBM_FDU_ASMIR;
-		card->bridge_addr = ioremap_nocache (
+		card->bridge_addr = ioremap (
 			pci_resource_start (pdev, 0),
 			pci_resource_len (pdev, 0));
 		break;
 	case DVBM_PCI_DEVICE_ID_LINSYS_DVBFDEB:
 		name = DVBM_NAME_FDEB;
-		card->flash_addr = ioremap_nocache (pci_resource_start (pdev, 3),
+		card->flash_addr = ioremap (pci_resource_start (pdev, 3),
 			pci_resource_len (pdev, 3));
 		card->data_addr = card->flash_addr + DVBM_FDU_ASMIR;
-		card->bridge_addr = ioremap_nocache (
+		card->bridge_addr = ioremap (
 			pci_resource_start (pdev, 0),
 			pci_resource_len (pdev, 0));
 		break;
 	case DVBM_PCI_DEVICE_ID_LINSYS_DVBFDEB_R:
 		name = DVBM_NAME_FDEB_R;
-		card->flash_addr = ioremap_nocache (pci_resource_start (pdev, 3),
+		card->flash_addr = ioremap (pci_resource_start (pdev, 3),
 			pci_resource_len (pdev, 3));
 		card->data_addr = card->flash_addr + DVBM_FDU_ASMIR;
-		card->bridge_addr = ioremap_nocache (
+		card->bridge_addr = ioremap (
 			pci_resource_start (pdev, 0),
 			pci_resource_len (pdev, 0));
 		break;
 	case DVBM_PCI_DEVICE_ID_LINSYS_DVBTXE:
 		name = DVBM_NAME_TXE;
-		card->flash_addr = ioremap_nocache (pci_resource_start (pdev, 3),
+		card->flash_addr = ioremap (pci_resource_start (pdev, 3),
 			pci_resource_len (pdev, 3));
 		card->data_addr = card->flash_addr + DVBM_FDU_ASMIR;
-		card->bridge_addr = ioremap_nocache (
+		card->bridge_addr = ioremap (
 			pci_resource_start (pdev, 0),
 			pci_resource_len (pdev, 0));
 		break;
 	case DVBM_PCI_DEVICE_ID_LINSYS_DVBRXE:
 		name = DVBM_NAME_RXE;
-		card->flash_addr = ioremap_nocache (pci_resource_start (pdev, 3),
+		card->flash_addr = ioremap (pci_resource_start (pdev, 3),
 			pci_resource_len (pdev, 3));
 		card->data_addr = card->flash_addr + DVBM_FDU_ASMIR;
-		card->bridge_addr = ioremap_nocache (
+		card->bridge_addr = ioremap (
 			pci_resource_start (pdev, 0),
 			pci_resource_len (pdev, 0));
 		break;
 	case SDIME_PCI_DEVICE_ID_LINSYS:
 		name = SDIME_NAME;
-		card->flash_addr = ioremap_nocache (pci_resource_start (pdev, 3),
+		card->flash_addr = ioremap (pci_resource_start (pdev, 3),
 			pci_resource_len (pdev, 3));
 		card->data_addr = card->flash_addr + SDIM_ASMIR;
-		card->bridge_addr = ioremap_nocache (
+		card->bridge_addr = ioremap (
 			pci_resource_start (pdev, 0),
 			pci_resource_len (pdev, 0));
 		break;
 	case MMSAE_PCI_DEVICE_ID_LINSYS:
 		name = MMSAE_NAME;
-		card->flash_addr = ioremap_nocache (pci_resource_start (pdev, 3),
+		card->flash_addr = ioremap (pci_resource_start (pdev, 3),
 			pci_resource_len (pdev, 3));
 		card->data_addr = card->flash_addr + MMSA_ASMIR;
-		card->bridge_addr = ioremap_nocache (
+		card->bridge_addr = ioremap (
 			pci_resource_start (pdev, 0),
 			pci_resource_len (pdev, 0));
 		break;
 	case MMASE_PCI_DEVICE_ID_LINSYS:
 		name = MMASE_NAME;
-		card->flash_addr = ioremap_nocache (pci_resource_start (pdev, 3),
+		card->flash_addr = ioremap (pci_resource_start (pdev, 3),
 			pci_resource_len (pdev, 3));
 		card->data_addr = card->flash_addr + MMAS_ASMIR;
-		card->bridge_addr = ioremap_nocache (
+		card->bridge_addr = ioremap (
 			pci_resource_start (pdev, 0),
 			pci_resource_len (pdev, 0));
 		break;
 	case DVBM_PCI_DEVICE_ID_LINSYS_DVBQIE:
 		name = DVBM_NAME_QIE;
-		card->flash_addr = ioremap_nocache (pci_resource_start (pdev, 2),
+		card->flash_addr = ioremap (pci_resource_start (pdev, 2),
 			pci_resource_len (pdev, 2));
 		card->data_addr = card->flash_addr + DVBM_QLF_ASMIR;
-		card->bridge_addr = ioremap_nocache (
+		card->bridge_addr = ioremap (
 			pci_resource_start (pdev, 0),
 			pci_resource_len (pdev, 0));
 		break;
 	case DVBM_PCI_DEVICE_ID_LINSYS_DVBQ3IOE:
 		name = DVBM_NAME_Q3IOE;
-		card->flash_addr = ioremap_nocache (pci_resource_start (pdev, 2),
+		card->flash_addr = ioremap (pci_resource_start (pdev, 2),
 			pci_resource_len (pdev, 2));
 		card->data_addr = card->flash_addr + DVBM_QIO_ASMIR;
-		card->bridge_addr = ioremap_nocache (
+		card->bridge_addr = ioremap (
 			pci_resource_start(pdev, 0),
 			pci_resource_len (pdev, 0));
 		break;
 	case DVBM_PCI_DEVICE_ID_LINSYS_DVBQ3INOE:
 		name = DVBM_NAME_Q3INOE;
-		card->flash_addr = ioremap_nocache (pci_resource_start (pdev, 2),
+		card->flash_addr = ioremap (pci_resource_start (pdev, 2),
 			pci_resource_len (pdev, 2));
 		card->data_addr = card->flash_addr + DVBM_QIO_ASMIR;
-		card->bridge_addr = ioremap_nocache (
+		card->bridge_addr = ioremap (
 			pci_resource_start(pdev, 0),
 			pci_resource_len (pdev, 0));
 		break;

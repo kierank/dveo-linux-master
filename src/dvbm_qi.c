@@ -113,9 +113,9 @@ dvbm_qi_pci_probe (struct pci_dev *pdev)
 	}
 
 	/* Initialize the board info structure */
-	card->bridge_addr = ioremap_nocache (pci_resource_start (pdev, 4),
+	card->bridge_addr = ioremap (pci_resource_start (pdev, 4),
 		pci_resource_len (pdev, 4));
-	card->core.addr = ioremap_nocache (pci_resource_start (pdev, 2),
+	card->core.addr = ioremap (pci_resource_start (pdev, 2),
 		pci_resource_len (pdev, 2));
 	card->name = dvbm_qi_name;
 	card->id = pdev->device;
@@ -166,7 +166,7 @@ dvbm_qi_pci_probe (struct pci_dev *pdev)
 	/* Reconfigure the FPGA */
 	writel (0x00000000, card->bridge_addr + GT64_BOOTCSLDA);
 	writel (0x000000ff, card->bridge_addr + GT64_BOOTCSHDA);
-	p = ioremap_nocache (pci_resource_start (pdev, 3),
+	p = ioremap (pci_resource_start (pdev, 3),
 		pci_resource_len (pdev, 3));
 	writel (0x00000069, p);
 	/* Dummy read to flush PCI posted writes */

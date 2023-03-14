@@ -273,9 +273,9 @@ sdim_qoe_probe (struct pci_dev *pdev,
 
 	/* Initialize the board info structure */
 	/* Remap bridge address to the DMA controller */
-	card->bridge_addr = ioremap_nocache (pci_resource_start (pdev, 2),
+	card->bridge_addr = ioremap (pci_resource_start (pdev, 2),
 		pci_resource_len (pdev, 2));
-	card->core.addr = ioremap_nocache (pci_resource_start (pdev, 0),
+	card->core.addr = ioremap (pci_resource_start (pdev, 0),
 		pci_resource_len (pdev, 0));
 	card->version = readl(card->core.addr + SDIM_QOE_FPGAID) & 0xffff;
 	card->name = sdim_qoe_name;
