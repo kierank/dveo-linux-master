@@ -1,6 +1,8 @@
 Installation instructions for the Master Linux Software Development Kit
 =======================================================================
 
+*** Note: see also dkms.conf ***
+
 
 Compiling the kernel modules and example programs
 -------------------------------------------------
