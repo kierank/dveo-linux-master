@@ -1,3 +1,12 @@
+Version 3.15.0 (2023-03-15)
+==============
+
+Added support for kernel 5.14 on RHEL 9 / Rocky Linux 9, etc.
+
+DKMS config file for automatic handling of kernel updates.
+
+Various compatibility fixes from the past years.
+
 Version 3.14.0 (2014-02-28)
 ==============
 

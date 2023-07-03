@@ -118,7 +118,7 @@ dvbm_tx_pci_probe (struct pci_dev *pdev)
 		goto NO_MEM;
 	}
 
-	card->bridge_addr = ioremap_nocache (pci_resource_start (pdev, 0),
+	card->bridge_addr = ioremap (pci_resource_start (pdev, 0),
 		pci_resource_len (pdev, 0));
 	card->core.port = pci_resource_start (pdev, 2);
 	card->version = version << 8;

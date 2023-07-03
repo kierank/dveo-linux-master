@@ -365,18 +365,18 @@ dvbm_lpfd_pci_probe (struct pci_dev *pdev)
 	switch (pdev->device) {
 	default:
 	case DVBM_PCI_DEVICE_ID_LINSYS_DVBLPFD:
-		card->bridge_addr = ioremap_nocache (pci_resource_start (pdev, 1),
+		card->bridge_addr = ioremap (pci_resource_start (pdev, 1),
 			pci_resource_len (pdev, 1));
 		card->name = dvbm_lpfd_name;
 		break;
 	case DVBM_PCI_DEVICE_ID_LINSYS_DVBLPFDE:
-		card->bridge_addr = ioremap_nocache (pci_resource_start (pdev, 2),
+		card->bridge_addr = ioremap (pci_resource_start (pdev, 2),
 			pci_resource_len (pdev, 2));
 		card->name = dvbm_lpfde_name;
 		break;
 	}
 	/* ASI Core */
-	card->core.addr = ioremap_nocache (pci_resource_start (pdev, 0),
+	card->core.addr = ioremap (pci_resource_start (pdev, 0),
 		pci_resource_len (pdev, 0));
 	card->version = readl (card->core.addr + DVBM_LPFD_CSR) >> 16;
 	card->id = pdev->device;

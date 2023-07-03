@@ -92,10 +92,10 @@ dvbm_q3ino_pci_probe (struct pci_dev *pdev)
 
 	/* Initialize the board info structure */
 	/* LS DMA Controller */
-	card->bridge_addr = ioremap_nocache (pci_resource_start (pdev, 3),
+	card->bridge_addr = ioremap (pci_resource_start (pdev, 3),
 		pci_resource_len (pdev, 3));
 	/* ASI Core */
-	card->core.addr = ioremap_nocache (pci_resource_start (pdev, 2),
+	card->core.addr = ioremap (pci_resource_start (pdev, 2),
 		pci_resource_len (pdev, 2));
 	card->version = readl(card->core.addr + DVBM_QIO_FPGAID) & 0xffff;
 	card->name = dvbm_q3inoe_name;
@@ -121,7 +121,7 @@ dvbm_q3ino_pci_probe (struct pci_dev *pdev)
 	pci_set_drvdata (pdev, card);
 
 	/* PLX */
-	p = ioremap_nocache (pci_resource_start (pdev, 0),
+	p = ioremap (pci_resource_start (pdev, 0),
 		pci_resource_len (pdev, 0));
 
 	/* Reset PCI 9056 */

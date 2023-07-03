@@ -247,9 +247,9 @@ dvbm_qdual_pci_probe (struct pci_dev *pdev)
 	case DVBM_PCI_DEVICE_ID_LINSYS_DVBQDUAL:
 		/* LS DMA Controller */
 		card->bridge_addr =
-			ioremap_nocache (pci_resource_start (pdev, 3),
+			ioremap (pci_resource_start (pdev, 3),
 			pci_resource_len (pdev, 3));
-		card->core.addr = ioremap_nocache
+		card->core.addr = ioremap
 			(pci_resource_start (pdev, 2),
 			pci_resource_len (pdev, 2));
 		card->name = dvbm_qdual_name;
@@ -257,29 +257,29 @@ dvbm_qdual_pci_probe (struct pci_dev *pdev)
 	case DVBM_PCI_DEVICE_ID_LINSYS_DVBQDUALE:
 		/* LS DMA Controller */
 		card->bridge_addr =
-			ioremap_nocache (pci_resource_start (pdev, 3),
+			ioremap (pci_resource_start (pdev, 3),
 			pci_resource_len (pdev, 3));
-		card->core.addr = ioremap_nocache
+		card->core.addr = ioremap
 			(pci_resource_start (pdev, 2),
 			pci_resource_len (pdev, 2));
 		card->name = dvbm_qduale_name;
 		break;
 	case DVBM_PCI_DEVICE_ID_LINSYS_DVBLPQDUALE:
 		/* LS DMA Controller */
-		card->bridge_addr = ioremap_nocache
+		card->bridge_addr = ioremap
 			(pci_resource_start (pdev, 2),
 			pci_resource_len (pdev, 2));
-		card->core.addr = ioremap_nocache
+		card->core.addr = ioremap
 			(pci_resource_start (pdev, 0),
 			pci_resource_len (pdev, 0));
 		card->name = dvbm_lpqduale_name;
 		break;
 	case DVBM_PCI_DEVICE_ID_LINSYS_DVBLPQDUALE_MINIBNC:
 		/* LS DMA Controller */
-		card->bridge_addr = ioremap_nocache
+		card->bridge_addr = ioremap
 			(pci_resource_start (pdev, 2),
 			pci_resource_len (pdev, 2));
-		card->core.addr = ioremap_nocache
+		card->core.addr = ioremap
 			(pci_resource_start (pdev, 0),
 			pci_resource_len (pdev, 0));
 		card->name = dvbm_lpqduale_minibnc_name;
@@ -313,7 +313,7 @@ dvbm_qdual_pci_probe (struct pci_dev *pdev)
 	case DVBM_PCI_DEVICE_ID_LINSYS_DVBQDUAL:
 	case DVBM_PCI_DEVICE_ID_LINSYS_DVBQDUALE:
 		/* PLX */
-		p = ioremap_nocache (pci_resource_start (pdev, 0),
+		p = ioremap (pci_resource_start (pdev, 0),
 			pci_resource_len (pdev, 0));
 
 		/* Reset PCI 9056 */

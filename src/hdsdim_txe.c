@@ -320,7 +320,7 @@ hdsdim_txe_pci_probe (struct pci_dev *pdev)
 		goto NO_MEM;
 	}
 
-	card->core.addr = ioremap_nocache (pci_resource_start (pdev, 0),
+	card->core.addr = ioremap (pci_resource_start (pdev, 0),
 		pci_resource_len (pdev, 0));
 	card->bridge_addr = card->core.addr + 0x20;
 	card->version = readl(card->core.addr + HDSDIM_TXE_FPGAID) & 0xffff;
